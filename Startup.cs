@@ -29,7 +29,7 @@ namespace Library
             services.AddControllersWithViews();
             services.AddEntityFrameworkNpgsql();    
             services.AddDbContext<LibraryContext>(options =>
-            options.UseNpgsql(Configuration.GetConnectionString("LibraryContext")));
+            options.UseNpgsql(Configuration.GetConnectionString("LibraryDBConnection")));
         }
 
         // MIDDLEWARE
