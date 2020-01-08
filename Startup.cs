@@ -27,7 +27,7 @@ namespace Library
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddEntityFrameworkNpgsql();    
+            services.AddEntityFrameworkNpgsql();
             services.AddDbContext<LibraryContext>(options =>
             options.UseNpgsql(Configuration.GetConnectionString("LibraryContext")));
         }
