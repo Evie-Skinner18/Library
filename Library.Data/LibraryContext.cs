@@ -8,8 +8,9 @@ namespace Library.Data
     {
         public DbSet<Customer> Customers { get; set; }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //    => optionsBuilder.UseNpgsql("Host=my_host;Database=Library;Username=my_user;Password=my_pw");
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+            // "User ID=eves;Password=coucou;Server=localhost;Port=5432;Database=Library;Integrated Security=true;Pooling=true;"
+            => optionsBuilder.UseNpgsql("Host=localhost;Database=Library;Username=eves;Password=coucou");
 
         public LibraryContext(DbContextOptions options) : base(options)
         {
