@@ -1,8 +1,9 @@
 ﻿using System;
+using LibraryData;
 
 namespace Library.Services
 {
-    public class Class1
+    public class 
     {
     }
 }
