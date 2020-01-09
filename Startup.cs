@@ -10,6 +10,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using dotenv.net;
+using dotenv.net.DependencyInjection.Extensions;
+using System.Text;
 
 namespace Library
 {
@@ -26,10 +29,20 @@ namespace Library
         // used for the services layer. IOC container. Want to inject teh services using D.I
         public void ConfigureServices(IServiceCollection services)
         {
+            DotEnv.Config();
+            services.AddEnv(builder => {
+                builder
+                .AddEnvFile("./.env")
+                .AddThrowOnError(false)
+                .AddEncoding(Encoding.ASCII);
+            });
+
+            var connectionString = Environment.GetEnvironmentVariable("POSTGRES_CONNECTION_STRING");
+
             services.AddControllersWithViews();
             services.AddEntityFrameworkNpgsql();
             services.AddDbContext<LibraryContext>(options =>
-            options.UseNpgsql(Configuration.GetConnectionString("LibraryContext")));
+            options.UseNpgsql(connectionString));
         }
 
         // MIDDLEWARE
