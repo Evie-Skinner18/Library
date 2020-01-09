@@ -5,7 +5,12 @@ namespace LibraryData.Models.LibraryItems
 {
     public class Video : LibraryItem, IBorrowable
     {
+        [Required]
         public string Director { get; set; }
+
+        [Required]
+        public string FilmGenre { get; set; }
+
 
         public string Borrow()
         {
@@ -14,12 +19,12 @@ namespace LibraryData.Models.LibraryItems
 
         public string Return()
         {
-            throw new System.NotImplementedException();
+            return "Thank you for returning that video!";
         }
 
-        public string Review()
+        public string Review(int numberOfStars)
         {
-            throw new System.NotImplementedException();
+            return $"Thank you for giving this video {numberOfStars} stars!";
         }
     }
 
