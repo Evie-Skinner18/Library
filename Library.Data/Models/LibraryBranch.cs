@@ -29,5 +29,6 @@ namespace LibraryData.Models
         // collection of items belonging to this lib
         public IEnumerable<LibraryItem> LibraryItems { get; set; }
 
+        public string ImageUrl { get; set; }
     }
 }
