@@ -26,6 +26,7 @@
   <ItemGroup>
     <Folder Include="Library.Data\Models\" />
     <Folder Include="Library.Data\Models\Common\" />
+    <Folder Include="Library.Data\Models\LibraryItems\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Library.Data\Models\IListenable.cs" />

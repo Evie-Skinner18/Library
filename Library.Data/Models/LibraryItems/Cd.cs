@@ -1,8 +1,8 @@
 ﻿using LibraryData.Models.Common;
 
-namespace LibraryData.Models
+namespace LibraryData.Models.LibraryItems
 {
-    public class Cd : ILibraryItem
+    public class Cd : LibraryItem, IBorrowable
     {
         public string Borrow()
         {

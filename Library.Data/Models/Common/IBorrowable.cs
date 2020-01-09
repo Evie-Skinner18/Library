@@ -1,9 +1,9 @@
 ﻿namespace LibraryData.Models.Common
 {
-    public interface ILibraryItem
+    public interface IBorrowable
     {
         string Borrow();
         string Return();
-        string Review();
-    }
+        string Review(int numberOfStars);
+    }   
 }
