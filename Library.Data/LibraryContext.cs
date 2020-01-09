@@ -15,6 +15,7 @@ namespace Library.Data
         public DbSet<Book> Books { get; set; }
         public DbSet<Cd> Cds { get; set; }
         public DbSet<Video> Videos { get; set; }
+        public DbSet<Magazine> Magazines { get; set; }
         public DbSet<LibraryItem> LibraryItems { get; set; }
         public DbSet<BranchHour> BranchHours { get; set; }
         public DbSet<LibraryBranch> LibraryBranches { get; set; }
