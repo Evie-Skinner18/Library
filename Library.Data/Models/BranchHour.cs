@@ -2,7 +2,7 @@
 
 namespace LibraryData.Models
 {
-    public class BranchHours
+    public class BranchHour
     {
         public int Id { get; set; }
 
