@@ -28,6 +28,5 @@ namespace LibraryData.Models.LibraryItems
         }
     }
 
-    //public class 
 
 }
