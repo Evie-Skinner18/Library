@@ -1,6 +1,6 @@
 using System;
 
-namespace Library.Models
+namespace LibraryData.Models
 {
     public class ErrorViewModel
     {

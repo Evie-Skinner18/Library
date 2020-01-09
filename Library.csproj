@@ -8,4 +8,28 @@
   <ItemGroup>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="dotenv.net" Version="1.0.6" />
+    <PackageReference Include="NUnit" Version="3.12.0" />
+    <PackageReference Include="NUnit.ConsoleRunner" Version="3.10.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />  
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Library.Data\Models\" />
+    <Folder Include="Library.Data\Models\Common\" />
+    <Folder Include="Library.Data\Models\LibraryItems\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Library.Data\Models\IListenable.cs" />
+  </ItemGroup>
 </Project>
