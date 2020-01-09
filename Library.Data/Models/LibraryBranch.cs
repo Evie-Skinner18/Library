@@ -11,7 +11,7 @@ namespace LibraryData.Models
 
         [Required]
         [StringLength (30, ErrorMessage = "Please give a branch name of fewer than thirty characters")]
-        public object Name { get; set; }
+        public string Name { get; set; }
 
         [Required]
         public string Address { get; set; }
