@@ -61,6 +61,7 @@ namespace Library.Services
                 .FirstOrDefault();
         }
 
+        // refactor
         public string GetItemType(int id)
         {
             var allItems = _libraryContext.LibraryItems;
