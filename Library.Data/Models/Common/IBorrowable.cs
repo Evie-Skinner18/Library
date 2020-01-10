@@ -9,11 +9,8 @@ namespace LibraryData.Models.Common
         LibraryItem GetItemById(int id);
         void AddItem(LibraryItem newLibraryItem);
 
-        string GetAuthor(int id);
-        string GetDirector(int id);
-        string GetCdGenre(int id);
-        string GetMagazineTopic(int id);
-        string GetFilmGenre(int id);
+        string GetAuthorDirectorOrArtist(int id);
+        string GetGenreOrTopic(int id);
         string GetIsbn(int id);
         string GetTitle(int id);
         string GetItemType(int id);

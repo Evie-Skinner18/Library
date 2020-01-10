@@ -5,6 +5,7 @@ using Library.Data;
 using LibraryData;
 using LibraryData.Models;
 using LibraryData.Models.Common;
+using LibraryData.Models.LibraryItems;
 using Microsoft.EntityFrameworkCore;
 
 namespace Library.Services
@@ -44,22 +45,10 @@ namespace Library.Services
 
         public string GetIsbn(int id)
         {
-            var isBook = _libraryContext.Books.Any(b => b.Id.Equals(id));
-            var response = "";
+            var isBook = _libraryContext.LibraryItems.OfType<Book>().Where(b => b.Id.Equals(id)).Any();
 
-            if (isBook)
-            {
-                response = _libraryContext.Books
-                    .Where(b => b.Id.Equals(id))
-                    .FirstOrDefault()
-                    .ISBN;
-            }
-            else
-            {
-                response = "Could't find that ISBN sorry!";
-            }
-
-            return response;
+            return isBook? _libraryContext.Books.Where(b => b.Id.Equals(id)).FirstOrDefault().ISBN :
+                "Could't find that ISBN sorry!";
         }
 
         public LibraryBranch GetItemLocation(int id)
@@ -74,10 +63,31 @@ namespace Library.Services
 
         public string GetItemType(int id)
         {
-            return _libraryContext.LibraryItems
-                .Where(i => i.Id.Equals(id))
-                .FirstOrDefault()
-                .GetType().Name;
+            var allItems = _libraryContext.LibraryItems;
+            var book = allItems.OfType<Book>().Where(b => b.Id.Equals(id));
+            var video = allItems.OfType<Video>().Where(v => v.Id.Equals(id));
+            var cd = allItems.OfType<Cd>().Where(c => c.Id.Equals(id));
+            var magazine = allItems.OfType<Magazine>().Where(m => m.Id.Equals(id));
+
+            var response = "";
+
+            if (book.Any())
+            {
+                response = "Book";
+            }
+            else if (video.Any())
+            {
+                response = "Video";
+            }
+            else if (cd.Any())
+            {
+                response = "CD";
+            }
+            else
+            {
+                response = "Magazine";
+            }
+            return response;
         }
 
         public string GetTitle(int id)
@@ -88,9 +98,14 @@ namespace Library.Services
                 .Title;      
         }
 
-        public string GetAuthor(int id)
+        // to-do: refactor
+        public string GetAuthorDirectorOrArtist(int id)
         {
-            var isBook = _libraryContext.Books.Any(b => b.Id.Equals(id));
+            // can I have these as properties so as to stop repeating them?
+            var isBook = _libraryContext.LibraryItems.OfType<Book>().Where(b => b.Id.Equals(id)).Any();
+            var isVideo = _libraryContext.LibraryItems.OfType<Video>().Where(v => v.Id.Equals(id)).Any();
+            var isCd = _libraryContext.LibraryItems.OfType<Cd>().Where(c => c.Id.Equals(id)).Any();
+
             var response = "";
 
             if (isBook)
@@ -100,37 +115,36 @@ namespace Library.Services
                     .FirstOrDefault()
                     .Author;
             }
-            else
-            {
-                response = "Could't find that author sorry!";
-            }
-
-            return response;
-        }
-
-        public string GetDirector(int id)
-        {
-            var isVideo = _libraryContext.Videos.Any(v => v.Id.Equals(id));
-            var response = "";
-
-            if (isVideo)
+            else if (isVideo)
             {
                 response = _libraryContext.Videos
                     .Where(v => v.Id.Equals(id))
                     .FirstOrDefault()
                     .Director;
             }
+            else if (isCd)
+            {
+                response = _libraryContext.Cds
+                    .Where(v => v.Id.Equals(id))
+                    .FirstOrDefault()
+                    .Artist;
+            }
             else
             {
-                response = "Could't find that director sorry!";
+                response = "Could't find that author/director/artist sorry!";
             }
 
             return response;
         }
 
-        public string GetCdGenre(int id)
+        
+        // to-do: add genre to LibraryItem model
+        public string GetGenreOrTopic(int id)
         {
-            var isCd = _libraryContext.Cds.Any(c => c.Id.Equals(id));
+            var isVideo = _libraryContext.LibraryItems.OfType<Video>().Where(v => v.Id.Equals(id)).Any();
+            var isCd = _libraryContext.LibraryItems.OfType<Cd>().Where(c => c.Id.Equals(id)).Any();
+            var isMagazine = _libraryContext.LibraryItems.OfType<Magazine>().Where(m => m.Id.Equals(id)).Any();
+
             var response = "";
 
             if (isCd)
@@ -140,20 +154,14 @@ namespace Library.Services
                     .FirstOrDefault()
                     .MusicGenre;
             }
-            else
+            else if(isVideo)
             {
-                response = "Could't find that CD genre sorry!";
+                response = _libraryContext.Videos
+                    .Where(v => v.Id.Equals(id))
+                    .FirstOrDefault()
+                    .FilmGenre;
             }
-
-            return response;
-        }
-
-        public string GetMagazineTopic(int id)
-        {
-            var isMagazine = _libraryContext.Magazines.Any(m => m.Id.Equals(id));
-            var response = "";
-
-            if (isMagazine)
+            else if (isMagazine)
             {
                 response = _libraryContext.Magazines
                     .Where(m => m.Id.Equals(id))
@@ -162,30 +170,12 @@ namespace Library.Services
             }
             else
             {
-                response = "Could't find that mag topic sorry!";
+                response = "Couldn't find that genre or topic soz!";
             }
 
             return response;
         }
 
-        public string GetFilmGenre(int id)
-        {
-            var isVideo = _libraryContext.Videos.Any(v => v.Id.Equals(id));
-            var response = "";
-
-            if (isVideo)
-            {
-                response = _libraryContext.Videos
-                    .Where(v => v.Id.Equals(id))
-                    .FirstOrDefault()
-                    .FilmGenre;
-            }
-            else
-            {
-                response = "Could't find that film genre sorry!";
-            }
-
-            return response;
-        }
+        
     }
 }
