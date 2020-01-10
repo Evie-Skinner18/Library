@@ -1,9 +1,10 @@
 ﻿using System;
 using LibraryData;
+using LibraryData.Models.Common;
 
 namespace Library.Services
 {
-    public class 
+    public class LibraryItemService : IBorrowable
     {
     }
 }

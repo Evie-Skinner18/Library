@@ -3,7 +3,7 @@ using LibraryData.Models.Common;
 
 namespace LibraryData.Models.LibraryItems
 {
-    public class Book : LibraryItem, IBorrowable
+    public class Book : LibraryItem
     {
         [Required]
         public string ISBN { get; set; }
@@ -11,20 +11,20 @@ namespace LibraryData.Models.LibraryItems
         [Required]
         public string Author { get; set; }
 
-        public string Borrow()
-        {
-            return "You have borrowed a book!";
-        }
+        //public string Borrow()
+        //{
+        //    return "You have borrowed a book!";
+        //}
 
-        public string Return()
-        {
-            return "Thank you for returning that book!";
-        }
+        //public string Return()
+        //{
+        //    return "Thank you for returning that book!";
+        //}
 
-        public string Review(int numberOfStars)
-        {
-            return $"Thank you for giving this book {numberOfStars} stars!";
-        }
+        //public string Review(int numberOfStars)
+        //{
+        //    return $"Thank you for giving this book {numberOfStars} stars!";
+        //}
     }
 
 }

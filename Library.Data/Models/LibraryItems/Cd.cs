@@ -3,7 +3,7 @@ using LibraryData.Models.Common;
 
 namespace LibraryData.Models.LibraryItems
 {
-    public class Cd : LibraryItem, IBorrowable
+    public class Cd : LibraryItem
     {
         [Required]
         public string Artist { get; set; }
@@ -11,19 +11,19 @@ namespace LibraryData.Models.LibraryItems
         [Required]
         public string MusicGenre { get; set; }
 
-        public string Borrow()
-        {
-            return "You have borrowed a CD";
-        }
+        //public string Borrow()
+        //{
+        //    return "You have borrowed a CD";
+        //}
 
-        public string Return()
-        {
-            return "Thank you for returning that CD!";
-        }
+        //public string Return()
+        //{
+        //    return "Thank you for returning that CD!";
+        //}
 
-        public string Review(int numberOfStars)
-        {
-            return $"Thank you for giving this CD {numberOfStars} stars!";
-        }
+        //public string Review(int numberOfStars)
+        //{
+        //    return $"Thank you for giving this CD {numberOfStars} stars!";
+        //}
     }
 }
