@@ -2,8 +2,10 @@ using NUnit.Framework;
 
 namespace Library.Tests
 {
-    public class Tests
+    public class LibraryItemServiceTests
     {
+
+
         [SetUp]
         public void Setup()
         {
