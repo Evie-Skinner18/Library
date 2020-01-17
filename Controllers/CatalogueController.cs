@@ -32,6 +32,13 @@ namespace Library.Controllers
                     Title = i.Title,
                     Type = _borrowable.GetItemType(i.Id)
                 });
+
+            var itemIndexModel = new ItemIndexModel()
+            {
+                Items = allViewItems
+            };
+
+            return View(itemIndexModel);
         }
     }
 }
