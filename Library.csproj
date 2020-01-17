@@ -30,6 +30,7 @@
     <Folder Include="Library.Data\Models\LibraryItems\" />
     <Folder Include="ViewModels\" />
     <Folder Include="ViewModels\Catalogue\" />
+    <Folder Include="Views\Catalogue\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Library.Data\Models\IListenable.cs" />
