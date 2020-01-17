@@ -1,5 +1,4 @@
-﻿using System;
-namespace Library.ViewModels.Catalogue
+﻿namespace Library.ViewModels.Catalogue
 {
     public class ItemIndexListingModel
     {
@@ -8,5 +7,11 @@ namespace Library.ViewModels.Catalogue
         public string ImageUrl { get; set; }
 
         public string Title { get; set; }
+
+        public string AuthorOrDirector { get; set; }
+
+        public int NumberOfCopies { get; set; }
+
+        public string Type { get; set; }
     }
 }
