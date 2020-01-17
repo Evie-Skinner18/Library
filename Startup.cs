@@ -13,6 +13,8 @@ using Microsoft.Extensions.Hosting;
 using dotenv.net;
 using dotenv.net.DependencyInjection.Extensions;
 using System.Text;
+using LibraryData.Models.Common;
+using Library.Services;
 
 namespace Library
 {
@@ -43,6 +45,8 @@ namespace Library
             services.AddEntityFrameworkNpgsql();
             services.AddDbContext<LibraryContext>(options =>
             options.UseNpgsql(connectionString));
+            // add any new services in the service layer here
+            services.AddScoped<IBorrowable, LibraryItemService>();  
         }
 
         // MIDDLEWARE
