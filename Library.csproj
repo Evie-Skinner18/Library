@@ -28,6 +28,8 @@
     <Folder Include="Library.Data\Models\" />
     <Folder Include="Library.Data\Models\Common\" />
     <Folder Include="Library.Data\Models\LibraryItems\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="ViewModels\Catalogue\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Library.Data\Models\IListenable.cs" />

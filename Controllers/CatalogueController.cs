@@ -13,5 +13,11 @@ namespace Library.Controllers
         {
             _borrowable = borrowable;
         }
+
+        // root route/catalogue
+        public IActionResult Index()
+        {
+            var allItems = _borrowable.GetAllItems();
+        }
     }
 }
