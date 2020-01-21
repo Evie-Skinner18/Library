@@ -3,7 +3,28 @@
 
 <div id="items">
     <h2>Welcome to the Library Catalogue!</h2>
-    <div class="itemsTable">
-
+    <div class="items-table">
+        <table class="items-table table-condensed" id="catalogue-index-table">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Author/Director</th>
+                    <th>Item Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- You can access the library view model items via the list in Item Index Model-->
+                @foreach (var item in Model.Items)
+                {
+                    <tr class="item-row">
+                        <td><img src="@item.ImageUrl" class="image-cell"/></td>
+                        <td>@item.Title</td>
+                        <td>@item.AuthorOrDirector</td>
+                        <td>@item.Type</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </div>
