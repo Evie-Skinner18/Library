@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Library.Data;
-using LibraryData;
 using LibraryData.Models;
 using LibraryData.Models.Common;
 using LibraryData.Models.LibraryItems;
