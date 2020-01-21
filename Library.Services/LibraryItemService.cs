@@ -27,6 +27,7 @@ namespace Library.Services
             _libraryContext.SaveChanges();
         }
 
+        // FIX THIS 
         public IEnumerable<LibraryItem> GetAllItems()
         {
             return _libraryContext.LibraryItems
