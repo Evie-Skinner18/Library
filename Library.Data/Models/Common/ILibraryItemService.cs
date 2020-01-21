@@ -3,7 +3,7 @@
 namespace LibraryData.Models.Common
 {
     // any service that implements this interface will need these methods
-    public interface IBorrowable
+    public interface ILibraryItemService
     {
         IEnumerable<LibraryItem> GetAllItems();
         LibraryItem GetItemById(int id);
@@ -16,10 +16,6 @@ namespace LibraryData.Models.Common
         string GetItemType(int id);
 
         LibraryBranch GetItemLocation(int id);
-
-        //    string Borrow();
-        //    string Return();
-        //    string Review(int numberOfStars);
     }
 }
 

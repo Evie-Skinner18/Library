@@ -48,7 +48,7 @@ namespace Library
             // add any new services in the service layer here
             services.AddSingleton(Configuration);
             // this service will get injected into the catalogue controller when it asks for the IBorrowable interface
-            services.AddScoped<IBorrowable, LibraryItemService>();  
+            services.AddScoped<ILibraryItemService, LibraryItemService>();  
         }
 
         // MIDDLEWARE

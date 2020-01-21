@@ -6,7 +6,7 @@ using LibraryData.Models.Common;
 using LibraryData.Models.LibraryItems;
 using Microsoft.EntityFrameworkCore;
 
-public class FakeLibraryItemService : IBorrowable
+public class FakeLibraryItemService : ILibraryItemService
 {
     private LibraryContext _libraryContext { get; set; }
 

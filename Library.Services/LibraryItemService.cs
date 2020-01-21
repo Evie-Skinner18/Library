@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Library.Services
 {
-    public class LibraryItemService : IBorrowable
+    public class LibraryItemService : ILibraryItemService
     {
         private LibraryContext _libraryContext { get; set; }
 
@@ -17,6 +17,11 @@ namespace Library.Services
         {
             _libraryContext = libraryContext;
         }
+
+        //public LibraryItemService()
+        //{
+        //    _libraryContext = new LibraryContext(options => options.)
+        //}
 
         public void AddItem(LibraryItem newLibraryItem)
         {
@@ -29,9 +34,9 @@ namespace Library.Services
         // FIX THIS 
         public IEnumerable<LibraryItem> GetAllItems()
         {
-            return _libraryContext.LibraryItems
-                .Include(i => i.ItemStatus)
-                .Include(i => i.Location);
+            return _libraryContext.LibraryItems;
+                //.Include(i => i.ItemStatus)
+                //.Include(i => i.Location);
         }
 
         public LibraryItem GetItemById(int id)

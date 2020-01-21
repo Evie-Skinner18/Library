@@ -7,18 +7,18 @@ namespace Library.Controllers
 {
     public class CatalogueController : Controller
     {
-        private IBorrowable _borrowable;
+        private ILibraryItemService _itemService;
 
         // this controller depends on an abstraction!
-        public CatalogueController(IBorrowable borrowable)
+        public CatalogueController(ILibraryItemService itemService)
         {
-            _borrowable = borrowable;
+            _itemService = itemService;
         }
 
         // root route/catalogue
         public IActionResult Index()
         {
-            var allItems = _borrowable.GetAllItems().ToList();
+            var allItems = _itemService.GetAllItems().ToList();
             var firstItem = allItems[0];
             // map each library item into an equivalent item but the View Model versoin.
             // can't I do this with auto mapper??
@@ -27,10 +27,10 @@ namespace Library.Controllers
                 {
                     Id = i.Id,
                     ImageUrl = i.ImageUrl,
-                    AuthorOrDirector = _borrowable.GetAuthorDirectorOrArtist(i.Id),
+                    AuthorOrDirector = _itemService.GetAuthorDirectorOrArtist(i.Id),
                     NumberOfCopies = i.NumberOfCopies,
                     Title = i.Title,
-                    Type = _borrowable.GetItemType(i.Id)
+                    Type = _itemService.GetItemType(i.Id)
                 });
 
             var itemIndexModel = new ItemIndexModel()

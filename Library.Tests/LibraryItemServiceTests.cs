@@ -11,7 +11,7 @@ namespace Library.Tests
 {
     public class LibraryItemServiceTests
 	{
-		private IBorrowable _fakeLibraryService;
+		private ILibraryItemService _fakeLibraryService;
 		private LibraryContext _libraryContext;
 		private LibraryBranch _stroudBranch;
 		private IEnumerable<LibraryItem> _libraryItems;
