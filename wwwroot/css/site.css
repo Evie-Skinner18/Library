@@ -62,7 +62,6 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-  background: tomato;
 }
 .footer {
   position: absolute;
@@ -70,8 +69,14 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+  color: bisque;
 }
 
 * {
     font-family: 'Markazi Text', serif;
+}
+
+#page {
+      background: tomato;
+      color: lemonchiffon;
 }
