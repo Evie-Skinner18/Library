@@ -18,7 +18,8 @@ namespace Library.Controllers
         // root route/catalogue
         public IActionResult Index()
         {
-            var allItems = _borrowable.GetAllItems();
+            var allItems = _borrowable.GetAllItems().ToList();
+            var firstItem = allItems[0];
             // map each library item into an equivalent item but the View Model versoin.
             // can't I do this with auto mapper??
             var allViewItems = allItems
