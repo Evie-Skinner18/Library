@@ -19,7 +19,6 @@ namespace Library.Controllers
         public IActionResult Index()
         {
             var allItems = _itemService.GetAllItems().ToList();
-            var firstItem = allItems[0];
             // map each library item into an equivalent item but the View Model versoin.
             // can't I do this with auto mapper??
             var allViewItems = allItems
